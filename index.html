@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista Virtual</title>
+    <link rel="stylesheet" href="Style.CSS">
+</head>
+
+<body>
+    <!-- Tela de Autenticação -->
+    <div id="authScreen" class="auth-screen active">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h1>📝 Lista Virtual</h1>
+                <p class="auth-subtitle">Organize suas anotações de forma segura</p>
+
+                <!-- Botões de Toggle -->
+                <div class="auth-toggle">
+                    <button id="toggleLogin" class="toggle-btn active">Entrar</button>
+                    <button id="toggleSignup" class="toggle-btn">Criar Conta</button>
+                </div>
+
+                <!-- FORMULÁRIO DE LOGIN -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginUsername">Nome de usuário:</label>
+                        <input 
+                            type="text" 
+                            id="loginUsername" 
+                            class="auth-input" 
+                            placeholder="escolha seu usuário"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Senha:</label>
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            class="auth-input" 
+                            placeholder="Digite sua senha"
+                            required
+                        >
+                    </div>
+
+                    <button type="button" id="loginBtn" class="btn-auth">🔓 Entrar</button>
+                    <p class="auth-message" id="loginMessage"></p>
+                </form>
+
+                <!-- FORMULÁRIO DE CADASTRO -->
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signupUsername">Nome de usuário:</label>
+                        <input 
+                            type="text" 
+                            id="signupUsername" 
+                            class="auth-input" 
+                            placeholder="escolha um usuário"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword">Senha:</label>
+                        <input 
+                            type="password" 
+                            id="signupPassword" 
+                            class="auth-input" 
+                            placeholder="Mínimo 6 caracteres"
+                            required
+                        >
+                        <small class="password-hint">Mínimo 6 caracteres</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPasswordConfirm">Confirmar Senha:</label>
+                        <input 
+                            type="password" 
+                            id="signupPasswordConfirm" 
+                            class="auth-input" 
+                            placeholder="Confirme sua senha"
+                            required
+                        >
+                    </div>
+
+                    <button type="button" id="signupBtn" class="btn-auth">🔐 Criar Conta</button>
+                    <p class="auth-message" id="signupMessage"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tela de verificação removida: fluxo de login agora entra diretamente após validação de senha -->
+
+    <!-- Tela da Lista (Conteúdo Principal) -->
+    <div id="appScreen" class="app-screen">
+        <header class="site-header">
+            <div class="container">
+                <div class="header-content">
+                    <h1>✓ Lista Virtual</h1>
+                    <div class="header-user">
+                        <span id="userName" class="user-email"></span>
+                        <button id="changeUsernameBtn" class="btn-secondary">Alterar Nome</button>
+                        <button id="changePasswordBtn" class="btn-secondary">Alterar Senha</button>
+                        <button id="logoutBtn" class="btn-logout">Sair</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <section id="intro" class="hero">
+                <h2>Minhas Anotações</h2>
+                <p>Escreva algo e clique em adicionar para guardar</p>
+            </section>
+
+            <section class="form-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="itemInput" 
+                        class="input-field" 
+                        placeholder="Digite algo aqui..."
+                        autocomplete="off"
+                    >
+                    <button id="addBtn" class="btn-add">➕ Adicionar</button>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <div id="itemList" class="items-list">
+                    <p class="empty-message">Nenhum item ainda. Digite algo acima!</p>
+                </div>
+            </section>
+
+            <section class="actions">
+                <button id="clearBtn" class="btn-secondary">🗑️ Limpar Tudo</button>
+                <span id="itemCount" class="item-count">0 itens</span>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <p>© 2026 — Lista Virtual</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Popup de erro (removido - usando simulação local) -->
+</body>
+
+</html>
